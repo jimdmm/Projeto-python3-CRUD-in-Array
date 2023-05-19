@@ -73,13 +73,17 @@ def atualizar(lista_contatos):
     
 def deletar(lista_contatos):
     nome = input("Digite o nome do contato que deseja deletar: ")
-    
+
     for contato in lista_contatos:
         if contato["Nome"] == nome:
-            lista_contatos.remove(contato)
-            print("Contato deletado com sucesso!")
-            return
-    
-    print("Nenhum contato encontrado com esse nome e sobrenome.")
+            confirmacao = input("Você tem certeza? \n")
+            if confirmacao.lower() == 'sim':
+                lista_contatos.remove(contato)
+                print("Contato deletado com sucesso!")
+                return
+            else:
+                break
+        else:
+            print("Nenhum contato encontrado com esse nome e sobrenome.")
 
 
