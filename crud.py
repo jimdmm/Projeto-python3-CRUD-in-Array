@@ -55,22 +55,19 @@ def atualizar(lista_contatos):
                 
                 """
         print(resultado)
-        campo = input("Digite o nome do campo que deseja atualizar (ou deixe em branco para sair): ")
-            
-        if campo == "":
-            return
-        
+
+        campo = input("Digite o nome do campo que deseja atualizar (ou digite cancelar para voltar para o menu): ")
+
+        if campo == "cancelar":
+            break
+
         if campo in contato:
-            valor = input("Digite o novo valor: ")
+            valor = input("Digite o novo valor para o campo: ")
             contato[campo] = valor
             print("Contato atualizado com sucesso!")
-            return
-        
-        print("Campo inválido.")
-        return
-    
-    print("Nenhum contato encontrado com esse nome.")
-    
+        else:
+            print("Campo inválido, digite novamente")
+
 def deletar(lista_contatos):
     nome = input("Digite o nome do contato que deseja deletar: ")
 
@@ -80,10 +77,11 @@ def deletar(lista_contatos):
             if confirmacao.lower() == 'sim':
                 lista_contatos.remove(contato)
                 print("Contato deletado com sucesso!")
-                return
             else:
                 break
         else:
             print("Nenhum contato encontrado com esse nome e sobrenome.")
+
+
 
 
